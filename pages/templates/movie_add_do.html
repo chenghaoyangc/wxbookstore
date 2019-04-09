@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>音乐上架</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/page.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+
+        <!-- 引入头部 -->
+        <?php require('pages/include/header.html');?>
+        <?php require('pages/include/menu.html');?>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+
+                <div class="addnew">
+                    <a href="main.php?go=movielist" class="layui-btn layui-btn-warm">电影列表</a>
+                    <a href="main.php?go=movieadd" class="layui-btn">电影上架</a>
+                </div>
+
+                <div style="clear:both;"></div>
+                <div class="createBody" style="width:80%;">
+                   <?php
+                   echo $result;
+                   ?>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © layui.com - 底部固定区域
+        </div>
+    </div>
+
+    <script src="layui/layui.js"></script>
+
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element;
+            //监听提交
+
+        });
+        layui.use('form', function () {
+            var form = layui.form;
+
+            //监听提交
+            form.on('submit(formDemo)', function (data) {
+                layer.msg(JSON.stringify(data.field));
+                // return false;
+            });
+        });
+
+        layui.use('laydate', function () {
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#dt' //指定元素
+            });
+        });
+
+        // 处理下拉select
+        // layui.use(['layer', 'form'], function () {
+        //     var layer = layui.layer;
+        //     var form = layui.form;
+        //     var $ = layui.$;
+
+        //     form.on('select(pclass)', function (data) {
+
+        //         // 获取当前所选的项目值
+        //         var id = data.value;
+
+        //         // 使用ajax,根据ID获取二级分类
+        //         $.get('main.php?go=ajax_class_select', { id: id }, function (res) {
+
+        //             console.log(res);
+
+        //             // 改变二级分类
+        //             $("#cclass").html(res);
+
+        //             // 重新渲染
+        //             form.render('select');
+        //         })
+
+        //     });
+
+        // });
+        $("#upload-ico").click(function () {
+
+            $("#poster").click();
+
+        })
+        $("#text2").click(function () {
+
+            $("#music").click();
+
+        })
+
+
+//juery
+// $(function(){
+
+//     $("select[name='pclass']").change(function(){
+
+//           console.log('change');
+
+//     })
+
+
+// })
+    </script>
+
+
+
+</body>
+
+</html>
